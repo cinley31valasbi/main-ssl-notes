@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>资料整理与信息索引｜熊猫体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e1e1e;
+            background-color: #f7f7f7;
+            min-height: 100vh;
+        }
+
+        /* hero – 深色头图 */
+        .hero {
+            background: #0b1a2b;
+            background: linear-gradient(160deg, #0b1a2b 0%, #162b3e 100%);
+            color: #e3eef7;
+            padding: 4rem 2rem 3.6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #f3c969;
+            font-weight: 500;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #b6cddd;
+            max-width: 560px;
+            margin: 0.5rem auto 1.8rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(243, 201, 105, 0.14);
+            border: 1px solid rgba(243, 201, 105, 0.25);
+            padding: 0.35rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #f0dca0;
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem;
+        }
+
+        /* 通用卡片/区段 */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 1.6rem;
+            border-left: 4px solid #c08a3c;
+            padding-left: 1rem;
+            color: #1f2e3b;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #162b3e;
+        }
+
+        .card p {
+            color: #3d4f5b;
+            font-size: 0.95rem;
+        }
+
+        .card .emoji-badge {
+            display: inline-block;
+            background: #eef3f7;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            color: #1d4c6b;
+        }
+
+        .accent-link {
+            color: #b27a2e;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(178, 122, 46, 0.15);
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .accent-link:hover {
+            color: #0b1a2b;
+            border-bottom-color: #0b1a2b;
+        }
+
+        .faq-summary {
+            background: #eef3f8;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.6rem;
+            margin: 2rem 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.3rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #102433;
+        }
+
+        .faq-item p {
+            color: #2b3b49;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .bottom-links {
+            margin-top: 2.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #d5dee5;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 3rem;
+            font-size: 0.95rem;
+        }
+
+        .bottom-links a {
+            color: #375e7a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .bottom-links a:hover {
+            border-bottom-color: #375e7a;
+        }
+
+        .footer-note {
+            background: #1d2b36;
+            color: #b2c9d9;
+            text-align: center;
+            padding: 1.2rem 1rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-note a {
+            color: #eacd91;
+            text-decoration: none;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .container {
+                padding: 1.8rem 1rem;
+            }
+            .bottom-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.8rem 1.2rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .faq-summary {
+                padding: 1.5rem;
+            }
+        }
+
+        /* 强调色用于链接已在全局定义 .accent-link */
+    </style>
+</head>
+<body>
+
+    <!-- HERO 区：深色背景 -->
+    <header class="hero">
+        <h1>信息整理 · <span>熊猫体育</span></h1>
+        <p class="sub">从资料归档到快速索引，搭建属于你的运动信息节点</p>
+        <span class="tagline">📍 索引 · 归档 · 轻量参考</span>
+    </header>
+
+    <!-- 优势区 + 说明区混合（网格卡片） -->
+    <div class="container">
+        <h2 class="section-title">日常整理中的三个优势</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="emoji-badge">📂 结构</span>
+                <h3>信息层级清晰</h3>
+                <p>将运动资讯、赛程与背景材料按主题归类，减少来回翻找的负担。每个条目都带有来源标记。</p>
+            </div>
+            <div class="card">
+                <span class="emoji-badge">🔍 检索</span>
+                <h3>关键词直达</h3>
+                <p>利用站内索引或笔记标签，几秒内定位到具体项目、队伍或记录。适合快速复查。</p>
+            </div>
+            <div class="card">
+                <span class="emoji-badge">🧩 关联</span>
+                <h3>交叉参考</h3>
+                <p>不同赛季、不同赛事的相似点可做对照。比如赛制变化或队伍阵容调整，一目了然。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：更详细的资料整理角度 -->
+    <div class="container" style="padding-top: 0;">
+        <h2 class="section-title">为什么从「资料索引」切入</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🏷️ 标签系统 + 摘要</h3>
+                <p>一份好的整理不只有链接，还有两行摘要和自定义标签。比如：#亚冠 #阵容变动 或 #青训数据。方便对信息做二次筛选。</p>
+                <p style="margin-top: 0.6rem;">你可以把 <a href="https://asia-pandasport.com" class="accent-link">熊猫体育</a> 当作其中一个稳定的信息来源，把页面内容摘录进自己的笔记里。</p>
+            </div>
+            <div class="card">
+                <h3>📅 时间轴与版本</h3>
+                <p>运动资讯更新频繁，归档时建议保留日期和原文快照（或至少记录访问日期）。对比不同时间节点的表述差异，往往能发现更多背景。</p>
+                <p style="margin-top: 0.6rem;">如果你的文件夹里已经有赛事资料，试试把熊猫体育的最新资讯作为对照条目加入。</p>
+            </div>
+        </div>
+
+        <!-- 一个自然嵌入链接的段落 -->
+        <div style="background: #f2f6fa; padding: 1.4rem 1.8rem; border-radius: 24px; margin: 2rem 0 0.5rem;">
+            <p style="font-size: 1rem; color: #1f3541;">
+                <span style="font-weight: 500;">📎 日常用法：</span> 
+                打开你的笔记或表格，把 <a href="https://asia-pandasport.com" class="accent-link">熊猫体育</a> 的近期动态作为一个新行录入，
+                加上你关注的队伍/项目标签和一句话摘要。持续一周，你会拥有一份轻量的运动信息简报。
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要区 -->
+    <div class="container" style="padding-top: 0.5rem;">
+        <h2 class="section-title">常见疑问 · 摘要</h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <strong>❓ 资料整理需要专门工具吗？</strong>
+                <p>不需要。一个表格、一个文档、甚至手机备忘录都可以开始。关键是养成随手归类、加上来源的习惯。像 <a href="https://asia-pandasport.com" class="accent-link">熊猫体育</a> 这样的站点可以作为参考源之一。</p>
+            </div>
+            <div class="faq-item">
+                <strong>❓ 如何保证信息的时效性？</strong>
+                <p>定期（如每周或每两周）检查已归档的链接，移除失效页面，更新过时的摘要。同时留意站点本身的更新时间。索引的价值在于持续维护。</p>
+            </div>
+            <div class="faq-item">
+                <strong>❓ 信息太多整理不过来怎么办？</strong>
+                <p>缩小范围。只整理你最常关注的1-2个赛事或队伍。数量少反而更容易坚持。等形成体系后再逐步扩展。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="container" style="padding-top: 0;">
+        <div class="bottom-links">
+            <a href="https://asia-pandasport.com" class="accent-link" style="font-weight: 500; border-bottom: 1px solid #c3913e;">熊猫体育</a>
+            <a href="#">资料归档建议</a>
+            <a href="#">标签参考表</a>
+            <a href="#">运动笔记模板</a>
+        </div>
+        <p style="text-align: center; color: #546a7a; font-size: 0.85rem; margin-top: 1.4rem;">
+            从信息整理出发，让每次查阅都更省力。
+        </p>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer-note">
+        <span>内容仅供个人参考 · 链接指向 <a href="https://asia-pandasport.com">熊猫体育</a> · 持续更新索引思路</span>
+    </footer>
+
+</body>
+</html>
